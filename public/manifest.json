@@ -1,0 +1,26 @@
+{
+  "name": "ALIGN X - Fitness Transformation",
+  "short_name": "AlignX",
+  "description": "Transform your fitness journey with expert guidance and premium facilities",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#10B981",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "icons": [
+    
+    {
+      "src": "icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ]
+}
