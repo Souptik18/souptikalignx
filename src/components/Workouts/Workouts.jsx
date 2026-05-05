@@ -6,6 +6,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { FaYoutube } from "react-icons/fa";
 import workoutBg from "../../Images/workout2.png";
+import { API_ENDPOINTS } from "../../config/api";
 
 const fade = {
   initial: { opacity: 0, y: 40 },
@@ -117,7 +118,7 @@ const Workouts = () => {
       console.log("Sending workout request:", payload);
 
       const res = await axios.post(
-        "https://workout-cz6z.onrender.com/api/workouts/recommendations",
+        API_ENDPOINTS.workoutRecommendations,
         payload
       );
       setRecommendations(res.data.recommended_workouts || []);

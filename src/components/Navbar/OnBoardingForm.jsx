@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 import { db, auth } from "../../firebase/config";
+import { API_ENDPOINTS } from "../../config/api";
 
 const fade = {
   initial: { opacity: 0, y: 50 },
@@ -51,7 +52,7 @@ const Onboarding = () => {
     try {
       // 1️⃣ Send data to FastAPI backend
       const res = await axios.post(
-        "https://workout-cz6z.onrender.com/api/onboarding",
+        API_ENDPOINTS.onboarding,
         {
           sex: form.sex,
           age: parseFloat(form.age),

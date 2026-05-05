@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import workout from "../../../Images/workout2.png";
 import { db, auth } from "../../../firebase/config";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { API_ENDPOINTS } from "../../../config/api";
 import {
   LineChart,
   Line,
@@ -125,7 +126,7 @@ export default function FitnessData() {
        * Backend calculates BMI, fitness goals, recommendations
        */
       const res = await fetch(
-        "https://workout-cz6z.onrender.com/api/onboarding",
+        API_ENDPOINTS.onboarding,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
