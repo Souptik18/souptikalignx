@@ -1,14 +1,26 @@
 let cache = null;
 
+const corsHeaders = {
+  "access-control-allow-origin": "*",
+  "access-control-allow-methods": "GET,POST,OPTIONS",
+  "access-control-allow-headers": "content-type",
+  "access-control-max-age": "86400"
+};
+
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
     headers: {
       "content-type": "application/json; charset=utf-8",
-      "access-control-allow-origin": "*",
-      "access-control-allow-methods": "GET,POST,OPTIONS",
-      "access-control-allow-headers": "content-type"
+      ...corsHeaders
     }
+  });
+}
+
+function preflight() {
+  return new Response(null, {
+    status: 204,
+    headers: corsHeaders
   });
 }
 
@@ -101,7 +113,7 @@ function workoutRecommendations(exercises, preferences) {
 
 export default {
   async fetch(request, env) {
-    if (request.method === "OPTIONS") return json({});
+    if (request.method === "OPTIONS") return preflight();
 
     const url = new URL(request.url);
     if (url.pathname === "/") return json({ status: "online", runtime: "cloudflare-worker" });

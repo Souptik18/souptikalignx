@@ -84,7 +84,7 @@ const Onboarding = () => {
       setStep(3);
     } catch (err) {
       console.error(err);
-      setError("Backend not reachable. Run FastAPI first.");
+      setError("Backend is temporarily unreachable. Please try again.");
     } finally {
       setLoading(false);
     }
