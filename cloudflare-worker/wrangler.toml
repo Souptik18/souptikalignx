@@ -1,4 +1,4 @@
-name = "souptikalignx-backend"
+name = "souptikalignx-api"
 main = "src/index.js"
 compatibility_date = "2026-05-05"
 
